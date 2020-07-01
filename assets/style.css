@@ -1,28 +1,34 @@
-  
-.container {
-    width: 100%
-  }
-  
-  .indentColumn {
-    padding-left: 0px;
-    padding-right: 0px;
-    font-size:15px;
-    width: 300px;
-    text-align:right
-  }
-  
-  #descriptionLine {
-    color: darkgray;
-    background-color: darkgray;
-    height: 1px;
-    width: 100%
-  }
-  
-  
-  
-  #quizTitle {
+
+h3 {
     text-align: center;
-    color: darkgray;
-    font-size: 30px;
-    font-weight: bold;
-  }
+}
+
+.direction {
+    text-align: center !important;
+}
+
+.hide {
+    display: none;
+    visibility: hidden;
+}
+
+.customModal {
+    display: block;
+    z-index: 998;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, .25);
+}
+
+.customModalContent {
+    display: block;
+    text-align: center;
+    z-index: 999;
+    margin: 15% auto;
+    width: 50%;
+    height: 50%;
+    background-color: white;
+}
