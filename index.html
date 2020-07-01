@@ -1,37 +1,100 @@
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Quiz</title>
-      <!-- Bootstrap CDN -->
-      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-      <link href="https://fonts.googleapis.com/css?family=Open+Sans:700|PT+Sans&display=swap" rel="stylesheet">
-      <link rel="stylesheet" href="./assets/css/reset.css">
-      <link rel="stylesheet" href="./assets/css/style.css">
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code Quiz</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="Assets/style.css" />
 </head>
-<body>
-  <div class="row">
-    <div class="col-1 indentColumn" id="leftSide"></div>
-    <div class="col-10" id="middle">
-    </div>
-    <div class="col-1">
-      <h1 id="countDisplay"></h1>
-    </div>
-  </div>
-    <!-- jQuery CDN -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
-    
-    <!-- Bootstrap JavaScript CDN -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js">
-    </script>
-    
-    <script src="./assets/js/app.js"></script>
 
+<body class="d-flex flex-column h-100">
+    <!-- Header to display high scores and Time -->
+    <header>
+        <div class="nav-scroller py-1 mb-2">
+            <nav class="nav d-flex justify-content-between">
+                <button type="button" id="highScoreBtn" class="btn" data-toggle="modal" data-target="#highScoreModal">View Highscore</button>
+                <div class="p-2 text-muted">Time: <span id="startTime"></span></div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Section to start quiz -->
+    <section id="startQuizSection" class="row justify-content-center">
+        <div class="col-md-5 bg-light border p-lg-3">
+            <div class="row">
+                <div class="col-md-12">
+                    <h3 class="border-bottom pb-3">Coding Quiz Challenge</h3>
+                </div>
+                <div class="col-md-12">
+                    <div class="direction">
+                        <p>Try to answer following code-related questions within the time limit. Keep in mind that incorrect answers will penalize your score/time by 10 seconds!</p>
+                    </div>
+                    <div class="direction">
+                        <input id="startQuiz" class="btn btn-primary" type="submit" value="Start Quiz">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Question section -->
+    <section id="questionsSection" class="hide row justify-content-center">
+        <div class="col-md-5 bg-light border p-lg-3">
+            <div class="row">
+                <div class="col-md-12">
+                    <h3 id="questionHeader" class="border-bottom pb-3">Q1</h3>
+                </div>
+                <div class="col-md-12">
+                    <div class="direction">
+                        <p id="question">?</p>
+                    </div>
+                    <div id="answers" class="direction">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- High score modal -->
+    <div id="highScoreModal" class="customModal hide">
+        <div class="container pt-3 customModalContent">
+            <div class="row">
+                <div class="col-md-6">
+                    <h2 class="float-left p-0 m-0">High Scores</h2>
+                </div>
+                <div class="col-md-6">
+                    <button id="closeModal" class="float-right"><span class="close">&times;</span></button>
+                </div>
+                <div class="col-md-12 text-left pt-2">
+                    <div id="listOfHighScores"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Section to save high score -->
+    <section id="saveScoreSection" class="row justify-content-center hide">
+        <div class="col-md-5 bg-light border p-lg-3">
+            <h3 class="border-bottom pb-3">All Done</h3>
+            <p>Your final score is <span id="finalScore">0</span></p>
+            <form>
+                <div class="form-row align-items-center">
+                    <div class="col-auto">
+                        <input type="text" class="form-control mb-2" id="userInitials" placeholder="Initials">
+                    </div>
+                    <div class="col-auto">
+                        <button id="submitScore" type="submit" class="btn btn-primary mb-2">Submit</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <!-- Link to JavaScript -->
+    <script src="./assets/app.js"></script>
 </body>
+
 </html>
